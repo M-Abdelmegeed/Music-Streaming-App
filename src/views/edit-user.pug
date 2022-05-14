@@ -1,0 +1,27 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+        include stylesheets.pug
+    body
+        include navbar.pug
+        div.d-flex.justify-content-center.flex-column.align-items-center
+            h2.m-3 Edit Your Info
+            img.rounded.mx-auto.d-block(src='/images/'+user.image  style='max-width:100px')
+            form.w-50(action="/user/edit/"+user._id, method="POST")
+                div.mb-3
+                    label(for="name" class="form-label") Name
+                    input(type="name" class="form-control" id="name" name="name" value=user.name)
+                div.mb-3
+                    label(for="age" class="form-label") Email
+                    input(type="name" class="form-control" id="email" name="email" value=user.email)
+                div.mb-3
+                    label(for="username", class="form-label") Username 
+                    input(type="text", class="form-control", id="username", name="username" value=user.username)
+                div.mb-3
+                    label(for="position" class="form-label") Phone
+                    input(type="name" class="form-control" id="phoneNumber" name="phoneNumber" value=user.phoneNumber)
+                button(type="submit" class="btn btn-primary d-block m-auto") Submit

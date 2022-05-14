@@ -1,0 +1,37 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Add Song
+        include stylesheets.pug
+    body
+        include navbar.pug
+        div.d-flex.justify-content-center.flex-column.align-items-center
+            h2.m-3 Add Song
+            form.w-50(action="/songs/add-song/", method="POST", enctype="multipart/form-data")
+                div.mb-3
+                    label(for="songName" class="form-label") Song Name
+                    input(type="name" class="form-control" id="songName" name="songName")
+                div.mb-3
+                    label(for="artist" class="form-label") Artist
+                    input(type="name" class="form-control" id="artist" name="artist")
+                div.mb-3
+                    label(for="duration" class="form-label") Duration
+                    input(type="name" class="form-control" id="duration" name="duration")
+                div.mb-3
+                    label(for="duration" class="form-label") Genre
+                    select.form-control(style="padding: 0.375rem 0.75rem" name="genre")
+                        option(hidden disabled selected) Select One
+                        option(value='House') House
+                        option(value='Pop') Pop
+                        option(value='Hip-Hop') Hip-Hop
+                        option(value='Rock') Rock
+                div.mb-3
+                    label(for="image" class="form-label") Image
+                    input(type="file" class="form-control" id="image" name="image")
+                div.mb-3
+                    label(for="audio" class="form-label") Audio
+                    input(type="file" class="form-control" id="audio" name="audio")
+                button(type="submit" class="btn btn-primary d-block m-auto") Submit

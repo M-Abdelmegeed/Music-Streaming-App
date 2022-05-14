@@ -1,0 +1,29 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Login
+        include stylesheets.pug
+    body 
+        include navbar.pug
+        div.d-flex.justify-content-center.flex-column.align-items-center
+            br
+            br
+            h2 Login
+            br
+            if error 
+                div.alert.alert-danger #{error.message}
+            form.w-50(method="POST", action="/login")
+                div.mb-3
+                    label(for="email", class="form-label") Email 
+                    input(type="text", class="form-control", id="email", name="email")
+                div.mb-3
+                    label(for="password", class="form-label") Password 
+                    input(type="password", class="form-control", id="password", name="password")
+                div.mb-3(style="align-content: center; text-align:center ;")
+                    button(type="submit", class="btn btn-primary mx-auto", style="margin-right:7%") Login
+                    a.btn.btn-outline-dark(href='/auth/google' role='button' style='text-transform:none; margin-left:7%')
+                        img(width='20px' alt='Google sign-in' src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png')
+                        |       Login with Google

@@ -1,0 +1,151 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title User
+        include stylesheets.pug
+        style.
+            body {background: linear-gradient(hsla(191, 100%, 61%, 1),hsla(300, 100%, 66%, 1));
+            background-attachment: fixed;}
+            .nav-link {
+            border-radius: 0px !important;
+            transition: all 0.5s;
+            width: 100px;
+            display: flex;
+            flex-direction: column}
+            .nav-link small {
+            font-size: 12px}
+            .nav-link:hover {background-color: #52525240 !important}
+            .nav-link .fa {
+            transition: all 1s;
+            font-size: 20px}
+            .nav-link:hover .fa {
+            transform: rotate(360deg)}
+            .sidebar {
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            position: fixed;
+            height: 80%;
+            overflow: auto;}
+    body
+        include navbar.pug
+        //- if user.role=="ADMIN"
+        //-     a.btn.btn-primary(href='/songs/add-song/').justify-content-center.align-items-center Add Song
+        br
+        br
+        if user.role=="USER"
+            .d-flex.flex-column.flex-shrink-0.bg-light.vh-100(style='width: 100px;').shadow.sidebar
+                ul.nav.nav-pills.nav-flush.flex-column.mb-auto.text-center
+                        li.nav-item
+                        a.nav-link.active.py-3.border-bottom(href='#')
+                            i.fa.fa-home
+                            small Home
+                        a.nav-link.py-3.border-bottom(href='/user/edit/'+user._id)
+                            i.fa.fa-user
+                            small My Account
+                        li
+                        a.nav-link.py-3.border-bottom(href='/user/likes/'+user._id)
+                            i.fa.fa-heart
+                            small Likes
+                        li
+                        a.nav-link.py-3.border-bottom(href='/user/genres/')
+                            i.fa.fa-music
+                            small Discover By Genres
+                        //- li.nav-item
+                        //- a.nav-link.active.py-3.border-bottom(href='#')
+                        //-     i.fa.fa-home
+                        //-     small Home
+                        //- a.nav-link.py-3.border-bottom(href='/user/edit/'+user._id)
+                        //-     i.fa.fa-user
+                        //-     small My Account
+                        //- li
+                        //- a.nav-link.py-3.border-bottom(href='/songs/add-song/')
+                        //-     i.fa.fa-plus
+                        //-     small Add Song
+                        //- li
+                        //- a.nav-link.py-3.border-bottom(href='/user/admin/view-users/')
+                        //-     i.fa.fa-eye
+                        //-     small View Users
+        if user.role=="ADMIN"
+            .d-flex.bg-light.sidebar(style='width: 4.5rem; height:4.5rem;').shadow
+                ul.nav.nav-pills.text-center
+                    li.nav-item
+                        a.nav-link.active.py-3(href='/user/home/')(style='width: 4.5rem; height:4.5rem;')
+                            i.fa.fa-home
+                            small Home
+            div.container(style='margin-top:10rem')
+                div.d-flex.flex-wrap.justify-content-between.align-items-center
+                    .card(style='width: 15rem; height:15rem;').justify-content-center.shadow.align-items-center.mb-2
+                        a.nav(style='text-decoration:none;')(href='/songs/add-song/').align-items-center
+                            i.fa-solid.fa-plus.fa-10x.align-items-center
+                        p.text-primary Add Song
+                    .card(style='width: 15rem; height:15rem;').justify-content-center.shadow.align-items-center.mb-2
+                        a.nav(style='text-decoration:none;')(href='/user/edit/'+user._id).align-items-center
+                            i.fa.fa-user.fa-10x.align-items-center
+                        p.text-primary My Account
+                    .card(style='width: 15rem; height:15rem;').justify-content-center.shadow.align-items-center.mb-2
+                        a.nav(style='text-decoration:none;')(href='/user/admin/view-songs/').align-items-center
+                            i.fa-solid.fa-file-audio.fa-10x.align-items-center
+                        p.text-primary View Songs
+                    .card(style='width: 15rem; height:15rem;').justify-content-center.shadow.align-items-center.mb-2
+                        a.nav(style='text-decoration:none;')(href='/user/admin/view-users/').align-items-center
+                            i.fa.fa-eye.fa-10x.align-items-center
+                        p.text-primary View Users
+        if user.role=="USER"
+            div.container
+                div.d-flex.flex-wrap.justify-content-between.align-items-center
+                    each song in songs
+                        .card(style='width: 15rem;').justify-content-center.shadow.mb-2
+                            img.card-img-top(src='/images/'+song.img  alt='')
+                            .card-body
+                                h5.card-title.text-center #{song.name}
+                                p.text-center #{song.artist}
+                                audio(controls='', style='margin-left: 0.5rem; width:12rem;').justify-content-center
+                                    source(src='/images/'+song.song type='audio/mpeg')
+                                form(method='POST', action='/user/'+user._id + '/like/' +song._id +'/?redirect='+url)
+                                    //- #{user.songs.findIndex((item)=>item._id.toString()==song._id)}
+                                    //- #{song._id}
+                                    //- #{user.songs[song]._id}
+                                    if user.songs.findIndex((item)=>item._id.toString()==song._id.toString())>=0
+                                        button.btn(type='submit').justify-content-center
+                                            i.fa.fa-heart(style="color:red")
+                                    else
+                                        button.btn(type='submit').justify-content-center
+                                            i.fa.fa-regular.fa-heart(style="color:grey")
+            br
+            br
+            //- //- .card(style='width: 15rem;').justify-content-center.shadow
+            //- //-     img.card-img-top(src='https://static01.nyt.com/images/2022/03/09/multimedia/09onsoccer5/09onsoccer5-mediumSquareAt3X.jpg' alt='')
+            //- //-     .card-body
+            //- //-         h5.card-title.text-center Spotify Trial
+            //- //-         p.text-center AAA
+            //- //-         audio(controls='', style='margin-left: 0.5rem; width:12rem;').justify-content-center
+            //- //-             source(src='https://p.scdn.co/mp3-preview/f875e64bf86231b3b4a8a0a371e52b4188d96dcf?cid=f6a40776580943a7bc5173125a1e8832' type='audio/mpeg')
+            br
+            nav(aria-label='Page navigation')
+                ul.pagination.justify-content-center
+                    li.page-item
+                        a.page-link(href=`?page=1`).text-secondary First
+                    if pageno>1
+                        a.page-link(href=`?page=${parseInt(pageno) -1}`).text-secondary Previous
+                    else
+                        a.page-link(href=`?page=${parseInt(pageno)}`).text-secondary Previous
+                    li.page-item
+                    if pageno>1
+                        a.page-link(href=`?page=${parseInt(pageno) -1}`).text-secondary #{parseInt(pageno)-1}
+                        li.page-item
+                    a.page-link(href=`?page=${parseInt(pageno)}`).text-white.bg-primary #{parseInt(pageno)}
+                    li.page-item
+                    if noOfPages>=3
+                    if noOfPages>pageno
+                        a.page-link(href=`?page=${parseInt(pageno) + 1}`).text-secondary #{parseInt(pageno)+1}
+                        li.page-item
+                    if pageno<noOfPages
+                        a.page-link(href=`?page=${parseInt(pageno) + 1}`).text-secondary Next
+                    else
+                        a.page-link(href=`?page=${parseInt(pageno)}`).text-secondary Next
+                    a.page-link(href=`?page=${parseInt(noOfPages)}`).text-secondary Last
+        

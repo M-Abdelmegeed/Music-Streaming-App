@@ -1,0 +1,52 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title User
+        include stylesheets.pug
+        style.
+            body {background: linear-gradient(hsla(191, 100%, 61%, 1),hsla(300, 100%, 66%, 1));
+            background-attachment: fixed;}
+            .nav-link {
+            border-radius: 0px !important;
+            transition: all 0.5s;
+            width: 100px;
+            display: flex;
+            flex-direction: column}
+            .nav-link small {
+            font-size: 12px}
+            .nav-link:hover {background-color: #52525240 !important}
+            .nav-link .fa {
+            transition: all 1s;
+            font-size: 20px}
+            .nav-link:hover .fa {
+            transform: rotate(360deg)}
+            .sidebar {
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            position: fixed;
+            height: 80%;
+            overflow: auto;}
+    body
+        include navbar.pug
+        br
+        br
+        div.container
+            div.d-flex.flex-wrap.justify-content-between.align-items-center
+                each song in songs
+                    .card(style='width: 15rem;').justify-content-center.shadow.mb-3
+                        img.card-img-top(src='/images/'+song.img  alt='')
+                        .card-body
+                            h5.card-title.text-center #{song.name}
+                            p.text-center #{song.artist}
+                            audio(controls='', style='margin-left: 0.5rem; width:12rem;').justify-content-center
+                                source(src='/images/'+song.song type='audio/mpeg')
+                            a.btn.delete-player(href='/user/delete-song/'+song._id).justify-content-center.align-items-center
+                                    i.fa.fa-trash
+                            a.btn.delete-player(href='/songs/edit-song/'+song._id).justify-content-center.align-items-center
+                                    i.fa.fa-pen-to-square
+            br
+            br

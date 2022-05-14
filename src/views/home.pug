@@ -1,0 +1,309 @@
+title MyMusic
+style.
+  body{
+  font-family: 'Open Sans', sans-serif !important;
+  }
+  .gradient {
+  background: linear-gradient(hsla(191, 100%, 61%, 1),hsla(300, 100%, 66%, 1));
+  }
+  .py-6{
+  padding: 150px 0px;
+  }
+  .pt-6{
+  padding-top: 200px;
+  }
+  .green-color{
+  color: #1f5af0 !important;
+  }
+  .bg-black{
+  background-color: #000000;
+  }
+  .bg-soft-dark{
+  background-color: #00000099;
+  }
+  .btn-success{
+  background-color: #1f5af0 !important;
+  border-radius: 50px;
+  }
+  .btn-outline-secondary{
+  border-radius: 50px;
+  }
+  .shadow{
+  box-shadow: 0px 5px 10px #999;
+  }
+  @media (max-width:992px){
+  .display-3{
+  font-size: 35 !important;
+  }
+  }
+include navbar.pug
+include stylesheets.pug
+//- h1 Welcome to the homepage!
+.gradient.py-6.pt-6
+  .container
+    #carouselExampleFade.carousel.slide.carousel-fade(data-bs-ride='carousel')
+      .carousel-inner.text-center.text-white(style='height: 300px;')
+        .carousel-item.active
+          h1.display-3  Music For Everyone
+          a.btn.btn-success.py-2.px-5(href='')
+            small GET IT FOR FREE
+          a.btn.btn-outline-secondary.py-2.px-5(href='' style='color: white;') MyMusic PREMIUM
+        .carousel-item
+          h1.display-3
+            | Premium for the whole family
+            br
+            |  Only 35EGP.
+          a.btn.btn-success.py-2.px-5(href='')
+            small More Information
+        .carousel-item
+          h1.display-3
+            | Students 50% Premium
+            br
+            | gets the discount.
+          a.btn.btn-success.py-2.px-5(href='')
+            small More Information
+        .carousel-item
+          h1.display-3
+            | MyMusic® and PlayStation®
+            br
+            | Play on Xbox® One.
+          a.btn.btn-success.py-2.px-5(href='')
+            small More Information
+      button.carousel-control-prev(type='button' data-bs-target='#carouselExampleFade' data-bs-slide='prev')
+        span.carousel-control-prev-icon(aria-hidden='true')
+        span.visually-hidden Previous
+      button.carousel-control-next(type='button' data-bs-target='#carouselExampleFade' data-bs-slide='next')
+        span.carousel-control-next-icon(aria-hidden='true')
+        span.visually-hidden Next
+.py-5
+  .container
+    .row.align-items-center
+      .col-md-6
+        h1.mb-4 What is on MyMusic?
+        h4.mb-4
+          b Music
+        p.mb-4
+          | There are millions of songs on Spotify. Listen to your favourites,
+          br
+          | discover new pieces, create the perfect collection.
+        h4.mb-4
+          b Playlists
+        p.mb-4
+          | Crafted by music lovers and experts, soul
+          br
+          | You'll find ready-made playlists to suit your mood.
+        h4.mb-4
+          b New Releases
+        p.mb-4
+          | Listen to newly released singles and albums this week, in the Top 50
+          br
+          | discover what's going on.
+      .col-md-6
+        .row.g-0
+          .col-6.col-md-12.col-lg-6
+            img.img-fluid(src='https://cdn.podimo.com/images/0a6357f2-b896-41da-9f38-b5a0c4e7ba64_400x400.png')
+          .col-6.col-md-12.col-lg-6
+            img.img-fluid(src='https://a1-images.myspacecdn.com/images04/12/fb65665f43f84339b7ce53cd1a60ebf5/600x600.jpg')
+          .col-6.col-md-12.col-lg-6
+            img.img-fluid(src='https://i1.sndcdn.com/artworks-000141531400-ulguxj-t500x500.jpg')
+          .col-6.col-md-12.col-lg-6.d-md-none.d-lg-block
+            img.img-fluid(src='https://i1.sndcdn.com/artworks-DvosdNeBgm9ZZ7gK-HT40tA-t500x500.jpg')
+//- .gradient.py-5
+//-   .container
+//-     .row
+//-       .col-md-3.offset-md-1.d-none.d-md-block
+//-         h6.text-center.text-white Senin i&ccedil;in yap&imath;ld&imath;.
+//-         .row
+//-           .col-sm-6.text-center
+//-             img.img-fluid(src='3.jpg')
+//-             small.text-white Sana &ouml;zel g&uuml;n&uuml;n derlemesi
+//-           .col-sm-6.text-center
+//-             img.img-fluid(src='4.png')
+//-             small.text-white Yeni &ccedil;&imath;kanlar Radar&imath;
+//-           ul.list-unstyled.text-white.m-3(style='width:100%')
+//-             li.py-2
+//-               i.fa.fa-line-chart(aria-hidden='true')
+//-               |                             Listeler 
+//-               i.fa.fa-angle-right.float-end(aria-hidden='true')
+//-             li.py-2
+//-               i.fa.fa-calendar(aria-hidden='true')
+//-               |                             Yeni &Ccedil;&imath;kanlar    
+//-               i.fa.fa-angle-right.float-end(aria-hidden='true')
+//-             li.py-2
+//-               i.fa.fa-play(aria-hidden='true')
+//-               |                             Videolar
+//-               i.fa.fa-angle-right.float-end(aria-hidden='true')
+//-             li.py-2
+//-               i.fa.fa-podcast(aria-hidden='true')
+//-               |                             Podcast&apos;ler
+//-               i.fa.fa-angle-right.float-end(aria-hidden='true')
+//-             li.py-2
+//-               i.fa.fa-circle-o-notch(aria-hidden='true')
+//-               |                             Ke&scedil;fet
+//-               i.fa.fa-angle-right.float-end(aria-hidden='true')
+//-       .col-md-5.offset-md-2.text-white
+//-         h1.mb-4 Kolayd&imath;r.
+//-         h4.mb-4 Ara.
+//-         p.mb-4 Ne dinlemek istedi&gbreve;ini biliyor musun? Sadece ara ve &ccedil;al&apos;a dokun.
+//-         h4.mb-4 G&ouml;zat.
+//-         p.mb-4 En yeni listeleri, yeni &ccedil;&imath;kanlar&imath; ve harika &ccedil;alma listelerini hemen ke&scedil;fet.
+//-         h4.mb-4 Ke&scedil;fet.
+//-         p.mb-4
+//-           | Ki&scedil;isel &ccedil;alma listenle her Pazartesi yeni m&uuml;ziklerin tad&imath;n&imath; &ccedil;&imath;kart. Ya da arkana yaslan ve Radyo dinle.
+//- .py-5
+//-   .container
+//-     .row
+//-       .col-md-5
+//-         h1.text-center.float-lg-start
+//-           | Bir hesap her yerde 
+//-           br
+//-           | dinle.
+//-         ul.list-inline.mt-5.text-center.float-lg-start.d-none.d-md-block
+//-           li.list-inline-item MOB&Idot;L
+//-           li.list-inline-item B&Idot;LG&Idot;SAYAR
+//-           li.list-inline-item TABLET
+//-           li.list-inline-item ARABA
+//-         ul.list-inline.mt-3.pb-5.text-center.float-lg-start.d-none.d-md-block
+//-           li.list-inline-item.green-color HOPARL&Ouml;R
+//-           li.list-inline-item.green-color B&Idot;LG&Idot;SAYAR
+//-           li.list-inline-item.green-color PLAYSTAT&Idot;ON&reg;
+//-           li.list-inline-item.green-color XBOX
+//-           li.list-inline-item.green-color WEB &Ccedil;ALAR
+//-         .row.d-md-none
+//-           .col-6.my-5
+//-             ul.list-unstyled.text-center
+//-               li MOB&Idot;L
+//-               li B&Idot;LG&Idot;SAYAR
+//-               li TABLET
+//-               li ARABA
+//-           .col-6.my-5
+//-             ul.list-unstyled.text-center
+//-               li.green-color HOPARL&Ouml;R
+//-               li.green-color B&Idot;LG&Idot;SAYAR
+//-               li.green-color PLAYSTAT&Idot;ON&reg;
+//-               li.green-color XBOX
+//-               li.green-color WEB &Ccedil;ALAR
+//-       .col-md-6
+//-         img.img-fluid(src='devices.jpg')
+.py-5.gradient
+  .container
+    h1.text-center.py-4.text-white Reach The Music
+    .row
+      .col-md-3.offset-md-3
+        .card.mb-4.border-0.shadow
+          .card-body
+            h4 MyMusic Free
+            h2(style='margin-bottom: 72px;')
+              | 0.00 EGP
+              small
+            hr.mr-5
+            ul.list-unstyled
+              li
+                i.fa.fa-check(aria-hidden='true')
+                | Mix Play
+              li.text-muted
+                i.fa.fa-check(aria-hidden='true')
+                |  Ad-free
+              li.text-muted
+                i.fa.fa-check(aria-hidden='true')
+                | Unlimited Skips
+              li.text-muted
+                i.fa.fa-check(aria-hidden='true')
+                |  Play Offline
+              li.text-muted
+                i.fa.fa-check(aria-hidden='true')
+                |  High Quality Sound
+            hr.my-4
+            a.btn.btn-success.btn-block.w-100.py-2(href='#') FREE EDITION
+      .col-md-3
+        .card.mb-4.border-0.shadow
+          .card-body
+            h4 MyMusic Premium
+            h2
+              | 35.99 EGP
+              small
+            small
+              | Start your free 30-day trial*
+              br
+              | We have Family and Student offers
+            hr.mr-5
+            ul.list-unstyled
+              li
+                i.fa.fa-check(aria-hidden='true')
+                |  Mix Play
+              li
+                i.fa.fa-check(aria-hidden='true')
+                |  Ad-free
+              li
+                i.fa.fa-check(aria-hidden='true')
+                |  Unlimited Skips
+              li
+                i.fa.fa-check(aria-hidden='true')
+                | Play Offline
+              li
+                i.fa.fa-check(aria-hidden='true')
+                |  High Quality Sound
+            hr.my-4
+            a.btn.btn-success.btn-block.w-100.py-2(href='#') PREMIUM EDITION
+      .col-md-8.offset-md-2
+        p.text-center.text-white
+          small
+            | * Spotify 30-Day Free Trial Offer Terms and Conditions apply.
+            | Users who subscribe to Premium or Unlimited service or benefit from a trial can take advantage of this offer.
+  //- .py-6.bg-black
+  //-   .container.text-white
+  //-     .row
+  //-       .col-12.col-md-2
+  //-         h3
+  //-           b
+  //-             | Spotify 
+  //-             i.fa.fa-spotify(aria-hidden='true')
+  //-       .col-6.col-md-2
+  //-         ul.list-unstyled
+  //-           li.text-muted.mb-3
+  //-             small
+  //-               b &Scedil;&Idot;RKET
+  //-           li Hakk&imath;nda
+  //-           li &Idot;&scedil;ler
+  //-           li Bas&imath;n
+  //-           li Haberler
+  //-       .col-6.col-md-2
+  //-         ul.list-unstyled
+  //-           li.text-muted.mb-3
+  //-             small
+  //-               b TOPLULUKLAR
+  //-           li Sanat&ccedil;&imath;lar &Idot;&ccedil;in
+  //-           li Geli&scedil;tiriciler
+  //-           li Markalar
+  //-           li Yat&imath;r&imath;mc&imath;lar
+  //-       .col-6.col-md-2
+  //-         ul.list-unstyled
+  //-           li.text-muted.mb-3
+  //-             small
+  //-               b YARARLI BA&Gbreve;LANTILAR
+  //-           li Yard&imath;m
+  //-           li Hediye
+  //-           li Web &Ccedil;alar
+  //-       .col-12.col-md-4.float-md-start(style='width: -100px;')
+  //-         i.bi.bi-instagram.fa-2x.mx-3
+  //-         i.bi.bi-twitter.fa-2x.mx-3
+  //-         i.bi.bi-facebook.fa-2x.mx-3
+  //-       .clearfix
+  //-       ul.list-inline.mt-5.float-start(style='width: 500px; text-decoration: none;')
+  //-         li.list-inline-item
+  //-           a.text-white(href='#')
+  //-             small Yasal
+  //-         li.list-inline-item
+  //-           a.text-white(href='#')
+  //-             small Gizlilik
+  //-         li.list-inline-item
+  //-           a.text-white(href='#')
+  //-             small Cookies
+  //-         li.list-inline-item
+  //-           a.text-white(href='#')
+  //-             small Reklamlar Hakk&imath;nda
+  //-       p.mt-3.ms-auto.text-end(style='width: 300px;')
+  //-         small
+  //-           | T&uuml;rkiye 
+  //-           br
+  //-           | Spotify AB

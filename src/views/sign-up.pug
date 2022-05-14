@@ -1,0 +1,42 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Sign-Up
+        include stylesheets.pug
+    body 
+        include navbar.pug
+        div.d-flex.justify-content-center.flex-column.align-items-center
+            h2 Register New User 
+            if error 
+                div.alert.alert-danger #{error.message}
+            form.w-50(method="POST", action="/sign-up", enctype="multipart/form-data")
+                div.mb-3
+                    label(for="name", class="form-label") Name
+                    input(type="text", class="form-control", id="name", name="name")
+                div.mb-3
+                    label(for="email", class="form-label") Email 
+                    input(type="text", class="form-control", id="email", name="email")
+                div.mb-3
+                    label(for="username", class="form-label") Username 
+                    input(type="text", class="form-control", id="username", name="username")
+                div.mb-3
+                    label(for="phone-number", class="form-label") Phone Number 
+                    input(type="text", class="form-control", id="phone-number", name="phoneNumber")
+                div.mb-3
+                    label.custom-file-label(for="image", class="form-label") Photo
+                    input.custom-file-input(type="file", class="form-control", id="image", name="image")
+                div.mb-3
+                    label(for="password", class="form-label") Password 
+                    input(type="password", class="form-control", id="password", name="password")
+                //- button(type="submit", class="btn btn-primary d-block my-5 mx-auto") Sign-Up
+                //- a.btn.btn-outline-dark(href='/user/auth/google' role='button' style='text-transform:none')
+                //-     img(width='20px' style='margin-bottom:3px; margin-right:5px' alt='Google sign-in' src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png')
+                //-     |       Login with Google
+                div.mb-3(style="align-content: center; text-align:center ;")
+                    button(type="submit", class="btn btn-primary mx-auto", style="margin-right:7%") Sign-Up
+                    a.btn.btn-outline-dark(href='/auth/google' role='button' style='text-transform:none; margin-left:7%')
+                        img(width='20px' alt='Google sign-in' src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png')
+                        |       Login with Google
